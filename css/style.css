@@ -1,0 +1,127 @@
+*{
+	margin: 0;
+	border: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#container{
+	position: relative;
+	display: block;
+	width: 611px;
+	height: 611px;
+
+	margin: 0 auto;
+	
+}
+
+#board{
+	position: absolute;
+	width: 611px;
+	height: 611px;
+	z-index: 0;
+}
+
+.pin{
+	position: absolute;
+	z-index: 1;
+	margin-top: 0px;
+	margin-left: 0px;
+	width: 30px;
+	height: 30px;
+}
+
+#actionButton{
+	position: absolute;
+	background-color: red;
+	width: 200px;
+	height: 70px;
+	color: white;
+	text-align: center;
+	margin-left: -300px;
+	margin-top: 350px;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 40px;
+}
+
+#resultadoDado{
+	position: absolute;
+	margin-top: 200px;
+	margin-left: -300px;
+	width: 200px;
+	height:120px;
+	border: 1px solid black;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.tituloResultado{
+	margin-top: 15px;
+}
+
+#dadoDisplay{
+	font-weight: bold;
+	font-size: 60px;
+}
+
+.frameDisplayJogador{
+	position: absolute;
+	margin-top: 100px;
+	margin-left: -300px;
+	width: 200px;
+	height:50px;
+	padding-top: 10px;
+	border: 1px solid black;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+
+}
+
+#victoryScreen{
+
+	display: none;
+	visibility: hidden;
+    position: absolute;
+    width: 450px;
+    height: 200px;
+    background-color: white;
+    border: 3px solid black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 80px;
+    margin-top: 200px;
+    z-index: 2
+}
+
+#victoryText{
+	position: absolute;
+	margin-top: 35px;
+	margin-left: 50px;
+}
+
+.victoryImage{
+
+	margin-left: 270px;
+	margin-top: 20px;
+	width: 150px;
+	height: 150px;
+
+}
+
+.botaoReplay{
+	position: absolute;
+	background-color: red;
+	width: 200px;
+	height: 50px;
+	color: white;
+	text-align: center;
+	margin-left: 35px;
+	margin-top: -65px;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 20px;
+}

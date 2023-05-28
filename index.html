@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Snakes and ladders!</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="icon" type="image/png" href="./images/snake.png">
+</head>
+
+<body>
+	<div id="container">
+		<div id="board">
+			<img src="./images/board.jpg">
+		</div>
+		<img src="./images/p1.png" id = "p1" class = "pin">
+		<img src="./images/p2.png" id = "p2" class = "pin">
+		<img src="./images/p3.png" id = "p3" class = "pin">
+		<img src="./images/p4.png" id = "p4" class = "pin">
+
+		<div id="actionButton" onclick="play()"> Play! </div>
+
+		<div id="resultadoDado">
+			<p class="tituloResultado"> Resultado do dado </p>
+			<p id="dadoDisplay"> 0 </p>
+		</div>
+
+		<div class="frameDisplayJogador">
+			<p id="displayJogador"> Vez do jogador 1</p>
+		</div>
+
+		<div id= "victoryScreen" onclick="restart()">
+			<spam id="victoryText" >jogador 1 venceu!</spam>
+			<img src="./images/victory.jpg" class="victoryImage">
+			<div class="botaoReplay">Jogar novamente</div>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript" src="javascript/app.js"></script>
+
+</body>
+</html>
