@@ -160,8 +160,6 @@ function victory(player){
 	let textoVitoria = document.getElementById('victoryText');
 	let frameVitoria = document.getElementById('victoryScreen');
 
-	console.log(textoVitoria.innerHTML)
-	console.log(frameVitoria)
 
 	textoVitoria.innerHTML = "Jogador " + player + " ganhou!";
 	frameVitoria.style.display     = "block";
@@ -177,7 +175,7 @@ function checkVictory(){
 	for(let i = 1; i < 5; i++){
 		name = "p"+i;
 		
-		if(score[name] == 100){
+		if(score[name] >= 100){
 			
 			victory(i);
 		}
@@ -271,12 +269,10 @@ function execute_move_animation(piece,dice_result){
 	let moves_made = 0
 	let inter_position = score[piece]
 	
-	console.log("inciando movimento")
 
 	let rounds = setInterval( () => { 
 		if(moves_made + 1 == dice_result){
 			clearInterval(rounds)
-			console.log("finalizando movimento")
 		}
 
 		dislocate_piece(piece,inter_position,inter_position+1)
@@ -292,21 +288,17 @@ async function promise_execute_move_animation(piece, dice_result){
 			let moves_made = 0
 			let inter_position = score[piece]
 			
-			
 
 			let rounds = setInterval( () => { 
-
 				dislocate_piece(piece,inter_position,inter_position+1)
 				inter_position++
 				moves_made++
 
-
-				if(moves_made == dice_result){
+				if(moves_made >= dice_result){
 					clearInterval(rounds)
 					resolve()
 				}
 
-				
 			
 			}, 500);
 		})
@@ -356,26 +348,25 @@ function enable_play_button(){
 
 async function play(){
 
-
 	temp_disable_button()
 	let current_player = get_player_turn()
 	skip_turn();
-
 	let diceResult = rolldice();
 	update_display(diceResult);
-	
-	
-
-	await promise_execute_move_animation(current_player, diceResult);
+	let treatedDiceResult;
+	const newScore = score[current_player] + diceResult;
+	if(newScore > 100 ){
+		const excess = newScore - 100
+		treatedDiceResult = diceResult - excess
+	}else{
+		treatedDiceResult = diceResult;
+	}
+	await promise_execute_move_animation(current_player, treatedDiceResult);
 	increment_player_position_value(current_player ,diceResult);
 	await sleep(2000);
 	activate_effects(current_player);
-	update_player_display();
-
-	
+	update_player_display();	
 	checkVictory();
-	
-
 }
 
 
