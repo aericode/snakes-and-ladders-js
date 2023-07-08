@@ -142,7 +142,7 @@ function update_display(value){
 
 function update_player_display(){
 	let display = document.getElementById('displayJogador');
-	display.innerHTML = "Vez do jogador " + (player_turn+1);
+	display.innerHTML = "Player " + (player_turn+1) + "'s turn ";
 
 }
 
@@ -342,8 +342,6 @@ function enable_play_button(){
 	button.style.backgroundColor = "red";
 	button.onclick = () => play();
 }
-
-
 
 
 async function play(){
